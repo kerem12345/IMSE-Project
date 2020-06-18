@@ -1,0 +1,42 @@
+.topDest {
+	margin: 10px 0;}
+.topDest .headings {
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: 600;}
+.topDest a.destLinks {
+	text-decoration: none;
+	color: #000;}
+.topDest .destiBoxWrap {
+	position: relative;
+	overflow: hidden; 
+	height: 285px;
+	border-bottom: 1px solid #d5e5ff;
+	margin-bottom: 30px;}
+.topDest .destiBoxWrap .destiBox {
+	text-align: center;
+	padding: 20px 10px;
+	background-color: rgba(0, 0, 0, 0.5); 
+	width: 90%; 
+	position: absolute;
+	left: 5%; 
+	bottom: 5%;
+	transition: all ease 3s;
+	border-bottom: solid 2px #ffc904;}
+.topDest .destiBoxWrap .destiBox h4 {
+	font-size: 26px; 
+	font-weight: 600;
+	margin-top: 0px; 
+	color: #fff;}
+.topDest .destiBoxWrap .destiBox .btn {
+	padding: 8px 20px;}
+.hangBox {
+  padding: 50px;
+  background-color: white;
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+.hangBox:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+

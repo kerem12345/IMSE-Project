@@ -1,0 +1,63 @@
+version: "3"
+services:
+  php:
+    build:
+      context: './php/'
+      args:
+       PHP_VERSION: 7.4
+    networks:
+      - backend
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html/
+    container_name: php
+  apache:
+    build:
+      args:
+       APACHE_VERSION: ${APACHE_VERSION}
+    depends_on:
+      - php
+      - mongo
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html/
+    container_name: apache
+  db:
+    image: mysql:8.0
+    command: --init-file /hotel.sql
+    volumes:
+        - ./hotel.sql:/hotel.sql
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD: 1111
+    mongo:
+        image: mongo
+        restart: always
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: imse
+        ports:
+          - "27017:27017"
+
+    mongo-express:
+        image: mongo-express
+        restart: always
+        ports:
+          - "8081:8081"
+        environment:
+          ME_CONFIG_MONGODB_ADMINUSERNAME: root
+          ME_CONFIG_MONGODB_ADMINPASSWORD: imse
+
+
+networks:
+  frontend:
+  backend:
+volumes:
+    data:

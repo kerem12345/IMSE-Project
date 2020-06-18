@@ -1,0 +1,33 @@
+
+/*Bootsnip Slider*/
+.accordian {
+	width: 1000px; height: 320px;
+	overflow: hidden;
+	margin: 20px auto;
+
+}
+
+.accordian ul {
+	width: 1200px;
+}
+
+.accordian li {
+	position: relative;
+	display: block;
+	width: 160px;
+	float: left;
+	
+	border-left: 1px solid #888;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.accordian ul:hover li {width: 40px;}
+.accordian ul li:hover {width: 640px;}
+
+.accordian li img {
+	display: block;
+}
+
